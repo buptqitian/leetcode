@@ -1,4 +1,5 @@
 #include <iostream>
+#include <vector>
 using namespace std;
 
 struct Node{
@@ -31,10 +32,10 @@ public:
         }
     }
 
-    Node * createList(int *nums, int size){
+    Node * createList(vector<int> nums){
         Node *head = new Node(nums[0]);
         Node *p = head;
-        for(int i = 1; i < size; i++){
+        for(int i = 1; i < nums.size(); i++){
             Node *temp = new Node(nums[i]);
             p->next = temp;
             p = p->next;
@@ -45,9 +46,9 @@ public:
 
 int main()
 {
-    int a[] = {1, 1, 2};
+    vector<int> a = {1, 1, 2};
     Solution s;
-    Node *head = s.createList(a, 3);
+    Node *head = s.createList(a);
     s.print(head);
     cout << "-----" << endl;
     Node *temp_head = s.removeDulplicate(head);
